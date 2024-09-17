@@ -1,5 +1,113 @@
-
+:root {
+  --font-color:rgba(49, 62, 81, 1);
+  --blur-color: rgba(143, 160, 193, 0.14);
+}
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
 body {
-  font-family:'Rubik';
+  font-family:'Rubik', Arial, Helvetica, sans-serif;
+  color:var(--font-color);
+  width: 70%;
+  margin:auto;
+  background-image: url(./assets/images/pattern-background-desktop-light.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100% 100%;
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+.theme-slider {
+  display:flex;
+  justify-content: flex-end;
+  margin-top:40px;
+}
+main {
+  display:flex;
+  justify-content: space-around;
+  transform: translateY(40%);
+}
+.info-container h1 {
+  font-size:70px;
+  font-weight: lighter;
+}
+.info-container span {
+  font-weight:500;
+}
+.info-container h3 {
+  font-weight: normal;
+  font-style: italic;
+  padding-top:20px;
+}
+.options-container {
+  display:flex;
+  flex-direction: column;
+  gap:20px;
+  width:40%;
+}
+.option {
+  background-color: #fff;
+  width:100%;
+  padding:18px;
+  border-radius: 10px;
+  box-shadow: 0 16px 30px var(--blur-color);
+  display:flex;
+  align-items: center;
+}
+.option:hover {
+  box-shadow: 0 16px 10px var(--blur-color);
+  cursor: pointer;
+}
 
+.option span{
+  margin-left:20px;
+  font-weight:500;
+  font-size: 25px;
+}
+@media (max-width: 1300px) {
+  body {
+    width: 95%;
+  }
+}
+@media (max-width: 1070px) {
+  body {
+    width: 80%;
+    overflow-y:scroll;
+
+  }
+  main {
+    flex-direction: column;
+    transform: translateY(10%);
+
+  }
+  .info-container h3 {
+    padding-top:5px;
+    padding-bottom:60px;
+  }
+  .options-container {
+    width:100%;
+    padding-bottom:20px;
+  }
+}
+@media (max-width: 620px) {
+    body{
+      width:95%;
+    }
+  .info-container h1 {
+    font-size:50px;
+  }
+  .info-container h3 {
+    padding-bottom:30px;
+  }
+  main {
+    transform: translateY(5%);
+
+  }
+}
+@media (max-width: 400px) {
+  .info-container h1 {
+    font-size:40px;
+  }
 }
