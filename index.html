@@ -6,45 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./styles/style.css">
 
 
   <title>Frontend Mentor | Frontend quiz app</title>
 </head>
 
 <body>
+  <header>
+    <div class="theme-slider">
+      <img src="./assets/images/icon-sun-dark.svg" alt="Sun dark">
+      <img src="./assets/images/slider.svg" alt="slider">
+      <img src="./assets/images/icon-moon-dark.svg" alt="Moon dark">
+    </div>
+  </header>
 
-  <div class="theme-slider">
-    <img src="./assets/images/icon-sun-dark.svg" alt="Sun dark">
-    <img src="./assets/images/slider.svg" alt="slider">
-    <img src="./assets/images/icon-moon-dark.svg" alt="Moon dark">
-  </div>
   <main>
     <div class="info-container">
       <h1>Welcome to the<br><span>Frontend Quiz!</span></h1>
       <h3 class="line-3">Pick a subject to get started.</h3>
     </div>
     <div class="options-container">
-      <div class="option">
+      <button class="option" value="HTML">
         <img src="./assets/images/icon-html.svg" alt="html">
-        <span>HTML</span>
-      </div>
-      <div class="option">
+        <span class="subject">HTML</span>
+      </button>
+      <button class="option" value="CSS">
         <img src="./assets/images//icon-css.svg" alt="css">
-        <span>CSS</span>
-      </div>
-      <div class="option">
+        <span class="subject">CSS</span>
+      </button>
+      <button class="option" value="Javascript">
         <img src="./assets/images/icon-js.svg" alt="javascript">
-        <span>Javascript</span>
-      </div>
-      <div class="option">
+        <span class="subject">Javascript</span>
+      </button>
+      <button class="option" value="Accessibility">
         <img src="./assets/images/icon-accessibility.svg" alt="Accessibility">
         <span>Accessibility</span>
-      </div>
+      </button>
     </div>
   </main>
 
-
+  <script src="./javascript.js"></script>
 </body>
 
 </html>
