@@ -15,8 +15,8 @@
 <body>
     <header>
         <div class="subject-info">
-            <img src="./assets/images/icon-accessibility.svg" alt="Accessibility">
-            <span>Accessibility</span>
+            <img class="subject-logo" src="./assets/images/icon-accessibility.svg" alt="subject logo">
+            <span class="subject-title">Accessibility</span>
         </div>
         <div class="theme-slider">
             <img src="./assets/images/icon-sun-dark.svg" alt="Sun dark">
@@ -27,34 +27,35 @@
 
     <main>
         <div class="info-container">
-           <p>Question 1 of 10</p>
-           <p>Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for normal text?</p>
-           <div class="progess-bar"></div>
+            <p class="question-number">Question 1 of 10</p>
+            <p class ='question'>Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for normal text?
+            </p>
+            <div class="progress-bar"></div>
         </div>
         <div class="options">
             <div class="options-container">
-                <button class="option" value="HTML">
+                <button class="option">
                     <span>A</span>
-                    <span>4.5 : 1</span>
+                    <span class="option-a">4.5 : 1</span>
                 </button>
-                <button class="option" value="CSS">
+                <button class="option">
                     <span>b</span>
-                    <span>4.5 : 1</span>
+                    <span class="option-b">4.5 : 1</span>
                 </button>
-                <button class="option" value="Javascript">
+                <button class="option">
                     <span>C</span>
-                    <span>4.5 : 1</span>
+                    <span class="option-c">4.5 : 1</span>
                 </button>
-                <button class="option" value="Accessibility">
+                <button class="option">
                     <span>D</span>
-                    <span>4.5 : 1</span>
+                    <span class="option-d">4.5 : 1</span>
                 </button>
             </div>
             <div class="submit">
                 <button>Submit Answer</button>
             </div>
         </div>
-    
+
     </main>
 
     <script type="module" src="./js/subject.js"></script>
