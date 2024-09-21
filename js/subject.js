@@ -4,15 +4,20 @@ const DOM = {
     subjectTitle: document.querySelector('.subject-title'),
     questionNumber: document.querySelector('.question-number'),
     question: document.querySelector('.question'),
-    options: [document.querySelector('.option-a'), document.querySelector('.option-b'), document.querySelector('.option-c'), document.querySelector('.option-d')]
-
+    options: [document.querySelector('.option-a'), document.querySelector('.option-b'), document.querySelector('.option-c'), document.querySelector('.option-d')],
+}
+const eventDOM = {
+    optionsContainer: document.querySelector('.options-container')
 }
 const state = {
     subject: '',
-    questionNumber: 1
+    subjectInfo:{},
+    questionNumber: 1,
+    score: 0,
+    selectedOption: ""
 }
 window.onload = () => {
-    // change url to the subject's url
+    // 1) Change url to the subject's url
     const subject = localStorage.getItem("subject");
     state.subject = subject;
     const newUrl = `/${subject}`;
@@ -22,12 +27,14 @@ window.onload = () => {
     /*   const stateObj = { subject: subject };
       history.pushState(stateObj, `${subject}`, newUrl); */
 
-    //Populate the page with info from the json file
+    //2) Populate the page with info from the json file
     for (const [key, value] of Object.entries(DOM)) {
         value.innerHTML = '';
     }
     const quiz = data.quizzes.find( quiz => quiz.title === subject);
-    console.log(subject, data)
+
+    // console.log(quiz)
+    state.subjectInfo = quiz;
 
     DOM.subjectLogo.src = quiz.icon; 
     DOM.subjectTitle.textContent = quiz.title;
@@ -38,8 +45,21 @@ window.onload = () => {
     });
 
     
-    console.log(quiz)
 
 }
 // https://www.quora.com/How-do-I-modify-the-URL-without-reloading-the-page-using-JavaScript
 
+DOM.options.forEach( option => {
+    option.addEventListener('click', e => {
+        state.selectedOption = e.target.closest(".selected").textContent;
+        Array.from(eventDOM.optionsContainer.children).forEach(el => {
+            el.classList.remove("active");
+            el.children[0].classList.remove("active2");
+        })
+
+        e.target.closest('.option').classList.add("active");
+        e.target.parentElement.children[0].classList.add("active2");
+
+        console.log(state)
+    })
+})
