@@ -4,6 +4,8 @@
   --purple: #A729F5;
   --grey-navy: #626C7F;
   --light-grey: #F4F6FA;
+  --green: #26D782;
+  --red: #EE5454;
 }
 * {
   margin:0;
@@ -144,7 +146,23 @@ background-color: #f4f6fa;
   background-color: var(--purple) !important;
   color:#fff !important ;
 }
-
+.correct {
+  border-color: var(--green);
+}
+.correct2 {
+  background-color: var(--green) !important;
+  color:#fff !important;
+}
+.false {
+  border-color: var(--red);
+}
+.false2 {
+  background-color: var(--red)  !important;
+  color:#fff !important;
+}
+.actual-answer {
+  border-color: var(--green) !important;
+}
 /*RESPONSIVE LAYOUT*/
 @media (max-width: 1300px) {
   body {

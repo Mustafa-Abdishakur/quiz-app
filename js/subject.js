@@ -7,7 +7,8 @@ const DOM = {
     options: [document.querySelector('.option-a'), document.querySelector('.option-b'), document.querySelector('.option-c'), document.querySelector('.option-d')],
 }
 const eventDOM = {
-    optionsContainer: document.querySelector('.options-container')
+    optionsContainer: document.querySelector('.options-container'),
+    submitBtn: document.querySelector('.submit-btn'),
 }
 const state = {
     subject: '',
@@ -15,6 +16,7 @@ const state = {
     questionNumber: 1,
     score: 0,
     selectedOption: ""
+
 }
 window.onload = () => {
     // 1) Change url to the subject's url
@@ -52,14 +54,30 @@ window.onload = () => {
 DOM.options.forEach( option => {
     option.addEventListener('click', e => {
         state.selectedOption = e.target.closest(".selected").textContent;
+        // Highlight selected option
         Array.from(eventDOM.optionsContainer.children).forEach(el => {
             el.classList.remove("active");
             el.children[0].classList.remove("active2");
         })
-
         e.target.closest('.option').classList.add("active");
         e.target.parentElement.children[0].classList.add("active2");
 
-        console.log(state)
     })
+})
+
+eventDOM.submitBtn.addEventListener("click", (e) => {
+    if (state.selectedOption === "") return;
+    if (state.selectedOption === state.subjectInfo.questions[state.questionNumber - 1].answer) {
+        document.querySelector('.active').classList.add("correct");
+        document.querySelector('.active2').classList.add("correct2"); 
+
+    } else {
+        document.querySelector('.active').classList.add("false");
+        document.querySelector('.active2').classList.add("false2");
+         DOM.options.forEach(el => {
+            if( el.textContent === state.subjectInfo.questions[state.questionNumber - 1].answer) {
+                el.parentElement.classList.add("correct");
+            }
+        })
+    }
 })
