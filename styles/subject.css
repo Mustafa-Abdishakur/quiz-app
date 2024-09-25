@@ -72,8 +72,7 @@ content: '';
 z-index: -1;
 position:absolute;
 border-radius: 10px;
-/* display:inline-block; */
-width: 43vw;
+width: 42vw;
 height:14px;
 background-color: #f4f6fa;
 }
@@ -107,7 +106,7 @@ background-color: #f4f6fa;
     font-size: 22px;
   }
 
-.option span:first-child{
+.option .letter{
   color:var(--grey-navy);
   padding:5px 10px;
   border-radius: 3px;
@@ -115,13 +114,17 @@ background-color: #f4f6fa;
   margin-left:5px;  
   text-align: center;
 }
-.option span:last-child{
+.option .select{
   font-weight:500;
   padding:18px;
   width:100%;
   text-align: left;
   min-height:100%;
 }
+.option img {
+  display:none;
+}
+
 .submit button {
   width:100%;
   background-color: var(--purple);
