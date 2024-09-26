@@ -38,11 +38,11 @@ window.onload = () => {
     }
     const quiz = data.quizzes.find(quiz => quiz.title === subject);
 
-    // console.log(quiz)
     state.subjectInfo = quiz;
     renderQuestion();
 }
 const renderQuestion = () => {
+    console.log(state)
     DOM.subjectLogo.src = state.subjectInfo.icon;
     DOM.subjectTitle.textContent = state.subjectInfo.title;
     DOM.questionNumber.textContent = `Question ${state.questionNumber} of 10`;
@@ -93,8 +93,6 @@ eventDOM.submitBtn.addEventListener("click", (e) => {
                 }
             })
         }
-
-
         e.target.textContent = "Next Question";
     } else {
         //NEXT QUESTION
@@ -117,7 +115,16 @@ eventDOM.submitBtn.addEventListener("click", (e) => {
         state.progress = state.progress + 10;
         eventDOM.progressBar.style.width = `${state.progress}%`;
 
-        //Render new question
-        renderQuestion();
+        // Render new question or final score if complete
+        if (state.questionNumber <= state.subjectInfo.questions.length) {
+            renderQuestion();
+        } else {
+            // Render score
+            localStorage.setItem("icon", state.subjectInfo.icon);
+            localStorage.setItem("score", state.score);
+        window.location.href = "./score.html";
+
+
+        }
     }
 })

@@ -1,0 +1,142 @@
+:root {
+    --font-color: rgba(49, 62, 81, 1);
+    --blur-color: rgba(143, 160, 193, 0.14);
+    --purple: #A729F5;
+    --grey-navy: #626C7F;
+    --light-grey: #F4F6FA;
+    --green: #26D782;
+    --red: #EE5454;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', Arial, Helvetica, sans-serif;
+    color: var(--font-color);
+    width: 85%;
+    margin: auto;
+    background-image: url(../assets/images/pattern-background-desktop-light.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100% 100%;
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.subject-info {
+    display: flex;
+    align-items: center;
+}
+
+.subject-info span {
+    font-size: 26px;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    transform: translateY(30%);
+}
+
+.title {
+    font-size: 64px;
+    font-weight: 300;
+}
+
+.score-container {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.score-info {
+    background-color: #fff;
+    padding: 25px 30px;
+}
+
+.subject-info {
+    display: flex;
+    justify-content: center;
+}
+
+.subject-title {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.score-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score {
+    font-size: 120px;
+    font-weight: 500;
+}
+
+.play-btn {
+    background-color: var(--purple);
+    color: #fff;
+    font-size: 28px;
+    margin-top: 25px;
+    padding: 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.play-btn:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        transform: translateY(5%);
+    }
+
+    .play-btn {
+        margin-top: 10px;
+    }
+
+    .score-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 540px) {
+    body {
+        width: 90%;
+    }
+
+    .title {
+        font-size: 45px;
+        margin-bottom:10px;
+    }
+}
+@media (max-width: 360px) {
+    body {
+        width: 95%;
+    }
+    .title {
+        font-size: 35px;
+    }
+    .score {
+        font-size: 90px;
+    }
+
+}
