@@ -4,6 +4,7 @@ const DOM = {
     subjectTitle: document.querySelector('.subject-title'),
     subjectName: document.querySelector('.subject-name'),
     score: document.querySelector('.score'),
+    playBtn: document.querySelector('.play-btn')
 
     
 }
@@ -19,3 +20,7 @@ window.onload = () => {
     DOM.subjectName.textContent = subject;
     DOM.score.textContent = score;
 }
+DOM.playBtn.addEventListener('click', () => {
+    localStorage.clear();
+    window.location.href = "/";
+})

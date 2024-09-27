@@ -103,7 +103,7 @@ main {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     main {
         flex-direction: column;
         transform: translateY(5%);

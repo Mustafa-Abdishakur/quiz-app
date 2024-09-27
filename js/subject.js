@@ -122,9 +122,7 @@ eventDOM.submitBtn.addEventListener("click", (e) => {
             // Render score
             localStorage.setItem("icon", state.subjectInfo.icon);
             localStorage.setItem("score", state.score);
-        window.location.href = "./score.html";
-
-
+            window.location.href = "./score.html";
         }
     }
 })
