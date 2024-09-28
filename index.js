@@ -6,7 +6,7 @@ const DOM = {
     sunDark: document.querySelector('.sun-dark'),
     moonLight: document.querySelector('.moon-light'),
     moonDark: document.querySelector('.moon-dark'),
-    options: document.querySelectorAll('.option'),
+    options: document.querySelectorAll('.option')
 }
 window.onload = () => {
     localStorage.clear();

@@ -31,13 +31,14 @@ const state = {
 }
 window.onload = () => {
     // check theme 
-        const darkTheme = localStorage.getItem("dark-theme");
-        console.log(darkTheme)
-        if(darkTheme === true) theme();
+    const darkTheme = localStorage.getItem("dark-theme");
+    if (darkTheme === 'true') {
+        theme();
+    }
     // Populate the page with info from the json file
     const subject = localStorage.getItem("subject");
     state.subject = subject;
-    
+
     for (const [key, value] of Object.entries(DOM)) {
         value.innerHTML = '';
     }
@@ -132,7 +133,6 @@ eventDOM.submitBtn.addEventListener("click", (e) => {
 eventDOM.slideBall.addEventListener('click', e => theme());
 
 const theme = () => {
-    console.log('dark')
     eventDOM.slideBall.classList.toggle("move");
     eventDOM.body.classList.toggle("dark");
     eventDOM.sunLight.classList.toggle("dark-1");
@@ -140,4 +140,11 @@ const theme = () => {
     eventDOM.sunDark.classList.toggle("dark-2");
     eventDOM.moonDark.classList.toggle("dark-2");
     eventDOM.options.forEach(option => option.classList.toggle("dark-3"));
+    let darkTheme;
+    if (eventDOM.body.classList.contains("dark")) {
+        darkTheme = true;
+    } else {
+        darkTheme = false;
+    }
+    localStorage.setItem("dark-theme", darkTheme);
 }
