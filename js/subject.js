@@ -76,7 +76,10 @@ DOM.options.forEach(option => {
 
 eventDOM.submitBtn.addEventListener("click", (e) => {
     if (e.target.textContent === "Submit Answer") {
-        if (state.selectedOption === "") return;
+        if (state.selectedOption === "") {
+            alert('kindly choose an answer');
+            return;
+        }
         state.submitAnswer = true;
 
         if (state.selectedOption === state.subjectInfo.questions[state.questionNumber - 1].answer) {
