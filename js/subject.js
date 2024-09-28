@@ -10,6 +10,14 @@ const eventDOM = {
     optionsContainer: document.querySelector('.options-container'),
     submitBtn: document.querySelector('.submit-btn'),
     progressBar: document.querySelector('.progress-bar'),
+    slideBall: document.querySelector('.slide-ball'),
+    body: document.querySelector('body'),
+    sunLight: document.querySelector('.sun-light'),
+    sunDark: document.querySelector('.sun-dark'),
+    moonLight: document.querySelector('.moon-light'),
+    moonDark: document.querySelector('.moon-dark'),
+    options: document.querySelectorAll('.option')
+
 }
 const state = {
     subject: '',
@@ -22,17 +30,14 @@ const state = {
 
 }
 window.onload = () => {
-    // 1) Change url to the subject's url
+    // check theme 
+        const darkTheme = localStorage.getItem("dark-theme");
+        console.log(darkTheme)
+        if(darkTheme === true) theme();
+    // Populate the page with info from the json file
     const subject = localStorage.getItem("subject");
     state.subject = subject;
-    const newUrl = `/${subject}`;
-
-    //UNCOMMENT THIS IN THE END ( FOR HEAD TITLE )
-    //CAUSES RELOAD ISSUES
-    /*   const stateObj = { subject: subject };
-      history.pushState(stateObj, `${subject}`, newUrl); */
-
-    //2) Populate the page with info from the json file
+    
     for (const [key, value] of Object.entries(DOM)) {
         value.innerHTML = '';
     }
@@ -42,7 +47,6 @@ window.onload = () => {
     renderQuestion();
 }
 const renderQuestion = () => {
-    console.log(state)
     DOM.subjectLogo.src = state.subjectInfo.icon;
     DOM.subjectTitle.textContent = state.subjectInfo.title;
     DOM.questionNumber.textContent = `Question ${state.questionNumber} of 10`;
@@ -51,7 +55,6 @@ const renderQuestion = () => {
         option.textContent = state.subjectInfo.questions[state.questionNumber - 1].options[index];
     });
 }
-// https://www.quora.com/How-do-I-modify-the-URL-without-reloading-the-page-using-JavaScript
 
 DOM.options.forEach(option => {
     option.addEventListener('click', e => {
@@ -81,7 +84,6 @@ eventDOM.submitBtn.addEventListener("click", (e) => {
             document.querySelector('.active').classList.add("correct");
             document.querySelector('.active2').classList.add("correct2");
             document.querySelector('.active').children[2].style.display = "initial";
-            // console.log(document.querySelector('.active').children[2])
         } else {
             // wrong answer
             document.querySelector('.active').classList.add("false");
@@ -126,3 +128,16 @@ eventDOM.submitBtn.addEventListener("click", (e) => {
         }
     }
 })
+
+eventDOM.slideBall.addEventListener('click', e => theme());
+
+const theme = () => {
+    console.log('dark')
+    eventDOM.slideBall.classList.toggle("move");
+    eventDOM.body.classList.toggle("dark");
+    eventDOM.sunLight.classList.toggle("dark-1");
+    eventDOM.moonLight.classList.toggle("dark-1");
+    eventDOM.sunDark.classList.toggle("dark-2");
+    eventDOM.moonDark.classList.toggle("dark-2");
+    eventDOM.options.forEach(option => option.classList.toggle("dark-3"));
+}

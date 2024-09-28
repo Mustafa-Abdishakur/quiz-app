@@ -2,10 +2,11 @@
   --font-color:rgba(49, 62, 81, 1);
   --blur-color: rgba(143, 160, 193, 0.14);
   --purple: #A729F5;
-  --grey-navy: #626C7F;
+  --grey-navy: rgba(59, 77, 102, 1);
   --light-grey: #F4F6FA;
   --green: #26D782;
   --red: #EE5454;
+  
 }
 * {
   margin:0;
@@ -23,6 +24,54 @@ body {
   background-size: 100% 100%;
   min-height: 100vh;
   overflow-y: hidden;
+}
+
+.sun-dark, .moon-dark {
+  display:none;
+}
+.dark {
+  background-image: url(../assets/images/pattern-background-desktop-dark.svg);
+  background-color: var(--font-color);
+  color:#fff;
+}
+.dark-1 {
+ display:none;
+}
+.dark-2 {
+  display:initial;
+}
+.dark-3 {
+  background-color: var(--grey-navy) !important;
+  color:#fff;
+}
+.theme-slider {
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+.slide {
+  width:55px;
+  height: 30px;
+  background-color: var(--purple);
+  border-radius: 20px;
+  display:flex;
+  align-items: center;
+  padding-left:2px;
+  padding-right:2px;
+}
+.slide-ball {
+  width:25px;
+  height:25px;
+  background-color:#fff;
+  border-radius: 50%;
+  position:relative;
+}
+.move {
+  left:50%;
+}
+.slide-ball:hover {
+  cursor: pointer;
 }
 header {
   display:flex;
